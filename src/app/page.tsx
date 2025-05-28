@@ -1,56 +1,181 @@
-import Image from "next/image";
+"use client";
+import { useState } from "react";
 
-export default function Home() {
+import CgpaCalculator from "@/utility/cgpaCalculator";
+import { Course } from "@/utility/cgpaCalculator";
+import funcState from "@/utility/state";
+
+export default function EwuCgpaCalculator() {
+  const gradingSystem = CgpaCalculator.gradingSystem();
+  const resetCourseInput = {
+    name: "Course 1",
+    grade: "A+",
+    course_credit: 3.0,
+  };
+
+  const cgpaResult = funcState(useState<string>("0.00"));
+
+  const courses = funcState(useState<Course[]>([]));
+  const newCourseInput = funcState(useState<Course>(resetCourseInput));
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    newCourseInput.set((prev) => ({
+      ...prev,
+      [name]: name === "course_credit" ? Number(value) : value,
+    }));
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="max-w-6xl mx-auto">
+      <div className="bg-white rounded-lg shadow-lg p-6">
+        <h2 className="text-2xl  text-center text-gray-800 mb-8">
+          Add Courses and Calculate CGPA
+        </h2>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="space-y-2">
+              <label
+                htmlFor="course_name"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Course Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="course_name"
+                placeholder="Enter Course Name"
+                value={newCourseInput.get.name}
+                onChange={handleInputChange}
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label
+                htmlFor="grade"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Grade
+              </label>
+              <select
+                name="grade"
+                id="grade"
+                onChange={handleInputChange}
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              >
+                {Object.entries(gradingSystem).map(
+                  ([grade, [gpa, min, max]]) => (
+                    <option key={grade} value={grade}>
+                      {grade} ({gpa} GPA, {min}-{max} Marks)
+                    </option>
+                  )
+                )}
+              </select>
+            </div>
+
+            <div className="space-y-2">
+              <label
+                htmlFor="course_credit"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Credit Hours
+              </label>
+              <input
+                type="number"
+                name="course_credit"
+                id="course_credit"
+                placeholder="Enter Credit Hours"
+                value={newCourseInput.get.course_credit}
+                onChange={handleInputChange}
+                step="0.5"
+                min="0.5"
+                max="5.0"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              />
+            </div>
+          </div>
+
+          <button
+            onClick={() => {
+              courses.set([
+                ...courses.get,
+                {
+                  name: newCourseInput.get.name,
+                  grade: newCourseInput.get.grade,
+                  course_credit: newCourseInput.get.course_credit,
+                },
+              ]);
+              newCourseInput.set({
+                ...resetCourseInput,
+                name: `Course ${courses.get.length + 2}`,
+              });
+            }}
+            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            Add Course
+          </button>
+
+          {courses.get.length > 0 && (
+            <div className="mt-8">
+              <h3 className="text-lg font-medium text-gray-900 mb-4">
+                Added Courses
+              </h3>
+              <div className="space-y-3">
+                {courses.get.map((course, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-50 p-4 rounded-md flex items-center justify-between"
+                  >
+                    <div className="flex items-center space-x-4">
+                      <span className="text-gray-500">#{index + 1}</span>
+                      <div>
+                        <p className="font-medium text-gray-900">
+                          {course.name}
+                        </p>
+                        <p className="text-sm text-gray-500">
+                          Grade: {course.grade} | Credits:{" "}
+                          {course.course_credit}
+                        </p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => {
+                        courses.set(courses.get.filter((_, i) => i !== index));
+                      }}
+                      className="text-red-600 hover:text-red-800"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="mt-8 flex items-center justify-between">
+            <button
+              onClick={() =>
+                cgpaResult.set(CgpaCalculator.calculate(courses.get))
+              }
+              className="bg-green-600 text-white py-2 px-6 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors"
+            >
+              Calculate CGPA
+            </button>
+
+            <div className="text-right">
+              <p className="text-sm text-gray-500">Your CGPA</p>
+              <p className="text-3xl font-bold text-gray-900">
+                {cgpaResult.get}
+              </p>
+            </div>
+          </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }
