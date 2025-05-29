@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
-
+import "./cgpaCalculator.css";
 import CgpaCalculator from "@/utility/cgpaCalculator";
 import { Course } from "@/utility/cgpaCalculator";
 import funcState from "@/utility/state";
+import Image from "next/image";
 
 export default function EwuCgpaCalculator() {
   const gradingSystem = CgpaCalculator.gradingSystem();
@@ -29,78 +30,53 @@ export default function EwuCgpaCalculator() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="bg-white rounded-lg shadow-lg p-6">
-        <h2 className="text-2xl  text-center text-gray-800 mb-8">
-          Add Courses and Calculate CGPA
-        </h2>
+    <div className="cgpa-calculator-container">
+      <div className="calculator-card">
+        <h2 className="calculator-title">CGPA Calculator</h2>
 
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="space-y-2">
-              <label
-                htmlFor="course_name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Course Name
-              </label>
+        <div className="add-course-section">
+          <h3 className="section-heading">Add New Course</h3>
+          <div className="form-grid">
+            <div className="form-group">
+              <label htmlFor="course_name">Course Name</label>
               <input
                 type="text"
-                name="name"
                 id="course_name"
-                placeholder="Enter Course Name"
+                name="name"
+                placeholder="e.g., Calculus I"
                 value={newCourseInput.get.name}
                 onChange={handleInputChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               />
             </div>
-
-            <div className="space-y-2">
-              <label
-                htmlFor="grade"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Grade
-              </label>
-              <select
-                name="grade"
-                id="grade"
-                onChange={handleInputChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-              >
+            <div className="form-group">
+              <label htmlFor="grade">Grade</label>
+              <select id="grade" name="grade" onChange={handleInputChange}>
                 {Object.entries(gradingSystem).map(
                   ([grade, [gpa, min, max]]) => (
                     <option key={grade} value={grade}>
-                      {grade} ({gpa} GPA, {min}-{max} Marks)
+                      {grade} ({gpa} GPA)
                     </option>
                   )
                 )}
               </select>
             </div>
-
-            <div className="space-y-2">
-              <label
-                htmlFor="course_credit"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Credit Hours
-              </label>
+            <div className="form-group">
+              <label htmlFor="course_credit">Credit Hours</label>
               <input
                 type="number"
-                name="course_credit"
                 id="course_credit"
-                placeholder="Enter Credit Hours"
-                value={newCourseInput.get.course_credit}
-                onChange={handleInputChange}
+                name="course_credit"
+                placeholder="e.g., 3.0"
                 step="0.5"
                 min="0.5"
                 max="5.0"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                value={newCourseInput.get.course_credit}
+                onChange={handleInputChange}
               />
             </div>
           </div>
-
           <button
+            className="add-course-button"
             onClick={() => {
               courses.set([
                 ...courses.get,
@@ -115,64 +91,104 @@ export default function EwuCgpaCalculator() {
                 name: `Course ${courses.get.length + 2}`,
               });
             }}
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
           >
             Add Course
           </button>
+        </div>
 
-          {courses.get.length > 0 && (
-            <div className="mt-8">
-              <h3 className="text-lg font-medium text-gray-900 mb-4">
-                Added Courses
-              </h3>
-              <div className="space-y-3">
-                {courses.get.map((course, index) => (
-                  <div
-                    key={index}
-                    className="bg-gray-50 p-4 rounded-md flex items-center justify-between"
-                  >
-                    <div className="flex items-center space-x-4">
-                      <span className="text-gray-500">#{index + 1}</span>
-                      <div>
-                        <p className="font-medium text-gray-900">
-                          {course.name}
-                        </p>
-                        <p className="text-sm text-gray-500">
-                          Grade: {course.grade} | Credits:{" "}
-                          {course.course_credit}
-                        </p>
-                      </div>
+        {courses.get.length > 0 && (
+          <div className="added-courses-section">
+            <h3 className="section-heading">Added Courses</h3>
+            <ul className="courses-list">
+              {courses.get.map((course, index) => (
+                <li key={index} className="course-item">
+                  <div className="course-info">
+                    <span className="course-index">#{index + 1}</span>
+                    <div>
+                      <p className="course-name">{course.name}</p>
+                      <p className="course-details">
+                        Grade: {course.grade} | Credits: {course.course_credit}
+                      </p>
                     </div>
-                    <button
-                      onClick={() => {
-                        courses.set(courses.get.filter((_, i) => i !== index));
-                      }}
-                      className="text-red-600 hover:text-red-800"
-                    >
-                      Remove
-                    </button>
                   </div>
-                ))}
-              </div>
-            </div>
-          )}
+                  <button
+                    className="remove-course-button"
+                    onClick={() => {
+                      courses.set(courses.get.filter((_, i) => i !== index));
+                    }}
+                  >
+                    Remove
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-          <div className="mt-8 flex items-center justify-between">
-            <button
-              onClick={() =>
-                cgpaResult.set(CgpaCalculator.calculate(courses.get))
-              }
-              className="bg-green-600 text-white py-2 px-6 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors"
+        <div className="calculate-section">
+          <button
+            className="calculate-button"
+            onClick={() =>
+              cgpaResult.set(CgpaCalculator.calculate(courses.get))
+            }
+          >
+            Calculate CGPA
+          </button>
+          <div className="cgpa-result">
+            <p className="cgpa-label">Your CGPA</p>
+            <p className="cgpa-value">{cgpaResult.get}</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="profile-container">
+        <div className="profile-card">
+          <div className="profile-list">
+            <a
+              className="box github-link"
+              href="https://github.com/abrarShakhi"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Calculate CGPA
-            </button>
-
-            <div className="text-right">
-              <p className="text-sm text-gray-500">Your CGPA</p>
-              <p className="text-3xl font-bold text-gray-900">
-                {cgpaResult.get}
-              </p>
-            </div>
+              <Image
+                aria-hidden
+                src="/file.svg"
+                alt="File icon"
+                width={16}
+                height={16}
+              />
+              AbrarShakhi
+            </a>
+            <a
+              className="box portal-link"
+              href="https://portal.ewubd.edu"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                aria-hidden
+                src="/window.svg"
+                alt="Window icon"
+                width={16}
+                height={16}
+              />
+              Portal
+            </a>
+            <a
+              className="box website-link"
+              href="https://ewubd.edu"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                aria-hidden
+                src="/globe.svg"
+                alt="Globe icon"
+                width={16}
+                height={16}
+              />
+              Go to ewubd.edu
+            </a>
           </div>
         </div>
       </div>
