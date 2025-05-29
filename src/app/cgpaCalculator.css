@@ -11,7 +11,7 @@ header .container {
 header h1 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #2d3748;
+  color: #1f5fcd;
   text-align: left;
   background-color: #f2f5f7e8;
   padding: 10px;
@@ -39,7 +39,7 @@ header h1 {
 }
 
 .calculator-title {
-  font-size: 1.9em;
+  font-size: 1.8em;
   color: #313b42;
   text-align: center;
   margin-bottom: 30px;
@@ -223,7 +223,7 @@ header h1 {
 }
 
 .box:hover {
-  transform: rotate(-3deg) scale(1.02);
+  transform: rotate(-3deg) scale(1.03);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   text-decoration: none;
 }
@@ -235,19 +235,19 @@ header h1 {
 }
 
 .github-link {
-  background-color: #e5f3ff;
+  background-color: #e2f1fe;
   border: 1px solid rgba(203, 247, 188, 0.647);
   padding: 33px 0px;
 }
 
 .portal-link {
-  background-color: #fff4e7;
+  background-color: #fcf0e2;
   border: 1px solid rgba(203, 247, 188, 0.647);
   padding: 33px 0px;
 }
 
 .website-link {
-  background-color: #e9f7e6;
+  background-color: #ebfce8;
   border: 1px solid rgba(203, 247, 188, 0.647);
   padding: 33px 0px;
 }
