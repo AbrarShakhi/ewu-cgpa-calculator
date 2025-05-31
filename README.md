@@ -70,9 +70,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Abrarshakhi/ewu-cgpa-calculator/issues).
 
+### ❤️ Honorable Contributors
+1. [Tamjid](https://github.com/Brick-C)
+
 ## 📧 Contact
 
-<!-- Your Name - [@yourtwitter](https://twitter.com/yourtwitter) -->
+<!-- Your Name - [@yourtwitter](https://twitter.com/you-->
 
 Project Link: [https://github.com/Abrarshakhi/ewu-cgpa-calculator](https://github.com/Abrarshakhi/ewu-cgpa-calculator)
 
