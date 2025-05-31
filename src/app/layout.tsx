@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Victor_Mono } from "next/font/google";
+import Link from "next/link";
+import { Inter } from "next/font/google";
 
 import "./globals.css";
+import "./style.css";
 
-const victorMono = Victor_Mono({
-  variable: "--font-victor-mono",
-  weight: ["400", "700"],
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -22,11 +23,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${victorMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${inter.variable} antialiased min-h-screen flex flex-col`}
       >
         <header>
           <div>
-            <h1>East West University CGPA Calculator</h1>
+            <Link className="header-link" href="/">
+              East West University CGPA Calculator
+            </Link>
           </div>
         </header>
         <main>{children}</main>

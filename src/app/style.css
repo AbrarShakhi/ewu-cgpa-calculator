@@ -17,6 +17,18 @@ header h1 {
   padding: 10px;
 }
 
+.header-link {
+  display: block;
+  background-color: #001f3f;  /* Navy blue */
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: left;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  width: 100%;
+}
+
 .cgpa-calculator-container {
   display: flex;
   justify-content: center;
@@ -259,4 +271,74 @@ header h1 {
 
 .profile-list a img {
   filter: brightness(0) invert(0);
+}
+
+.error-container,
+.not-found-container {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.error-title,
+.not-found-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.error-content,
+.not-found-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+.not-found-message {
+  color: #666;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.error-actions,
+.not-found-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.error-button,
+.not-found-button {
+  background-color: #3498db;
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error-button:hover,
+.not-found-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.error-button:focus,
+.not-found-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
 }

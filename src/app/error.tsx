@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 
+import "./style.css";
+
 export default function Error({
   error,
   reset,
@@ -14,13 +16,13 @@ export default function Error({
   }, [error]);
 
   return (
-    <div>
-      <h1 className="max-w-6xl mx-auto bg-white rounded-lg shadow-lg p-6 ext-2xl  text-center text-gray-800 mb-8">
+    <div className="error-container">
+      <h1 className="error-title">
         Something went wrong!
       </h1>
-      <div className="mt-8 flex items-center justify-center">
+      <div className="error-actions">
         <button
-          className="bg-green-600 text-white py-2 px-6 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors"
+          className="error-button"
           onClick={() => reset()}
         >
           Try again

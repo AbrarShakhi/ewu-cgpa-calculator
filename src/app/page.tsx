@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import "./cgpaCalculator.css";
 import CgpaCalculator from "@/utility/cgpaCalculator";
 import { Course } from "@/utility/cgpaCalculator";
 import funcState from "@/utility/state";
 import Image from "next/image";
+
+import "./style.css";
 
 export default function EwuCgpaCalculator() {
   const gradingSystem = CgpaCalculator.gradingSystem();
