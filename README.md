@@ -1,5 +1,10 @@
 # EWU CGPA Calculator 🎓
 
+## Deployed Link
+[https://ewu-cgpa-calculator.vercel.app/](https://ewu-cgpa-calculator.vercel.app/)
+
+----
+
 A modern web application built with Next.js to calculate East West University students's CGPA.
 
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
