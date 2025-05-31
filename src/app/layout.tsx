@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Inter } from "next/font/google";
+import Image from "next/image";
+import FooterToggle from "./components/FooterToggle";
 
 import "./globals.css";
 import "./style.css";
@@ -11,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "EWU/NSU CGPA Calculatpr",
+  title: "EWU/NSU CGPA Calculator",
   description: "An unofficial site to calculate East West University CGPA",
 };
 
@@ -33,6 +35,7 @@ export default function RootLayout({
           </div>
         </header>
         <main>{children}</main>
+        <FooterToggle />
       </body>
     </html>
   );

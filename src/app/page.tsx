@@ -4,7 +4,6 @@ import { useState } from "react";
 import CgpaCalculator from "@/utility/cgpaCalculator";
 import { Course } from "@/utility/cgpaCalculator";
 import funcState from "@/utility/state";
-import Image from "next/image";
 
 import "./style.css";
 
@@ -139,73 +138,6 @@ export default function EwuCgpaCalculator() {
           <div className="cgpa-result">
             <p className="cgpa-label">Your CGPA</p>
             <p className="cgpa-value">{cgpaResult.get}</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="profile-container">
-        <div className="profile-card">
-          <div className="profile-list">
-            <a
-              className="box github-link"
-              href="https://github.com/abrarShakhi"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                aria-hidden
-                src="/file.svg"
-                alt="File icon"
-                width={16}
-                height={16}
-              />
-              AbrarShakhi
-            </a>
-            <a
-              className="box github-link"
-              href="https://github.com/Brick-C"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                aria-hidden
-                src="/file.svg"
-                alt="File icon"
-                width={16}
-                height={16}
-              />
-              Brick-C
-            </a>
-            <a
-              className="box portal-link"
-              href="https://portal.ewubd.edu"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                aria-hidden
-                src="/window.svg"
-                alt="Window icon"
-                width={16}
-                height={16}
-              />
-              Portal
-            </a>
-            <a
-              className="box website-link"
-              href="https://ewubd.edu"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                aria-hidden
-                src="/globe.svg"
-                alt="Globe icon"
-                width={16}
-                height={16}
-              />
-              Go to ewubd.edu
-            </a>
           </div>
         </div>
       </div>
