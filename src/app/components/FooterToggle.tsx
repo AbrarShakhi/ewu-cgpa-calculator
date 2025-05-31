@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function FooterToggle() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,12 +11,14 @@ export default function FooterToggle() {
 
   return (
     <footer className="footer">
-      <button 
-        className={`footer-toggle ${isOpen ? 'active' : ''}`}
+      <button
+        className={`footer-toggle ${isOpen ? "active" : ""}`}
         onClick={toggleFooter}
         aria-label="Toggle footer content"
-      />
-      <div className={`footer-content ${isOpen ? 'show' : ''}`}>
+      >
+        <div className="plus-icon">{isOpen ? "-" : "+"}</div>
+      </button>
+      <div className={`footer-content ${isOpen ? "show" : ""}`}>
         <div className="profile-container">
           <div className="profile-card">
             <div className="profile-list">
@@ -27,12 +29,7 @@ export default function FooterToggle() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img
-                    src="/file.svg"
-                    alt="File icon"
-                    width={16}
-                    height={16}
-                  />
+                  <img src="/file.svg" alt="File icon" width={16} height={16} />
                   AbrarShakhi
                 </a>
                 <a
@@ -41,12 +38,7 @@ export default function FooterToggle() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img
-                    src="/file.svg"
-                    alt="File icon"
-                    width={16}
-                    height={16}
-                  />
+                  <img src="/file.svg" alt="File icon" width={16} height={16} />
                   Brick-C
                 </a>
               </div>
@@ -86,4 +78,4 @@ export default function FooterToggle() {
       </div>
     </footer>
   );
-} 
+}
