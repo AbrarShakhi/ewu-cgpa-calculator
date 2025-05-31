@@ -5,7 +5,6 @@ import Image from "next/image";
 import FooterToggle from "./components/FooterToggle";
 
 import "./globals.css";
-import "./style.css";
 
 const inter = Inter({
   subsets: ["latin"],
