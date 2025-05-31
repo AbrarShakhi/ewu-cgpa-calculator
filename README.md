@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EWU CGPA Calculator 🎓
 
-## Getting Started
+A modern web application built with Next.js to help East West University students calculate their CGPA efficiently and accurately.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+## ✨ Features
+
+- 📊 Calculate CGPA with ease
+- 🎯 Support for all EWU grading systems
+- 📱 Responsive design for all devices
+  <!-- - 🌙 Dark mode support -->
+  <!-- - 💾 Save and load previous calculations -->
+  <!-- - 📈 Track academic progress -->
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18.x or later
+- Yarn package manager
+
+### Installation
+
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Abrarshakhi/ewu-cgpa-calculator.git
+cd ewu-cgpa-calculator
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Run the development server:
 
-## Learn More
+```bash
+yarn dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Built With
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [Next.js](https://nextjs.org/) - The React framework for production
+- [TypeScript](https://www.typescriptlang.org/) - For type safety
+- [Tailwind CSS](https://tailwindcss.com/) - For styling
+- [ESLint](https://eslint.org/) - For code linting
+- [Prettier](https://prettier.io/) - For code formatting
 
-## Deploy on Vercel
+## 📝 License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Abrarshakhi/ewu-cgpa-calculator/issues).
+
+## 📧 Contact
+
+<!-- Your Name - [@yourtwitter](https://twitter.com/yourtwitter) -->
+
+Project Link: [https://github.com/Abrarshakhi/ewu-cgpa-calculator](https://github.com/Abrarshakhi/ewu-cgpa-calculator)
+
+---
+
+Made with ❤️ for EWU students

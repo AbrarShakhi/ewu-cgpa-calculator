@@ -1,10 +1,8 @@
-
 interface Course {
   name: string;
   grade: string;
   course_credit: number;
 }
-
 
 class CgpaCalculator {
   static calculate(courses: Course[]): string {
@@ -21,7 +19,6 @@ class CgpaCalculator {
       totalGpaCredit += gpa * credit;
       totalCredit += credit;
     }
-
     return totalCredit > 0 ? (totalGpaCredit / totalCredit).toFixed(2) : "0.00";
   }
 
