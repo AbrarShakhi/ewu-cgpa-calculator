@@ -1,6 +1,6 @@
 # EWU CGPA Calculator 🎓
 
-A modern web application built with Next.js to help East West University students calculate their CGPA efficiently and accurately.
+A modern web application built with Next.js to calculate East West University students's CGPA.
 
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
