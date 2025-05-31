@@ -19,7 +19,7 @@ header h1 {
 
 .header-link {
   display: block;
-  background-color: #001f3f;  /* Navy blue */
+  background-color: #001f3f; /* Navy blue */
   color: white;
   font-size: 1.8rem;
   font-weight: 700;
@@ -38,16 +38,22 @@ header h1 {
 }
 
 .calculator-card {
-  background-color: rgba(228, 246, 246, 0.345);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(173, 216, 230, 0.8));
   backdrop-filter: blur(10px);
   flex: 1;
   padding: 30px;
   margin-right: 5%;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(175, 175, 175, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 123, 255, 0.15);
   width: 100%;
   max-width: 700px;
-  border: 1px solid rgba(232, 232, 232, 0.887);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.calculator-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 123, 255, 0.2);
 }
 
 .calculator-title {

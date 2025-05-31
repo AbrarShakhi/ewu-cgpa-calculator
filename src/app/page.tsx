@@ -162,6 +162,21 @@ export default function EwuCgpaCalculator() {
               AbrarShakhi
             </a>
             <a
+              className="box github-link"
+              href="https://github.com/Brick-C"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                aria-hidden
+                src="/file.svg"
+                alt="File icon"
+                width={16}
+                height={16}
+              />
+              Brick-C
+            </a>
+            <a
               className="box portal-link"
               href="https://portal.ewubd.edu"
               target="_blank"

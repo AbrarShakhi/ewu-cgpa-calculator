@@ -15,6 +15,10 @@ A modern web application built with Next.js to calculate East West University st
   <!-- - 💾 Save and load previous calculations -->
   <!-- - 📈 Track academic progress -->
 
+## 📸 Screenshots
+
+![Screenshot 1](public/ss1.png)
+
 ## 🚀 Getting Started
 
 ### Prerequisites
